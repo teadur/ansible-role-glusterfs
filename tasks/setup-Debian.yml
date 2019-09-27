@@ -5,6 +5,7 @@
       - gnupg2
       - apt-transport-https
       - ca-certificates
+      - ruby-crack
     state: present
 
 - name: Ensure repository pubkey for GlusterFS is present.
@@ -21,7 +22,7 @@
 - name: Ensure debian repo is present.
   apt_repository:
     repo: "deb [trusted=yes] https://download.gluster.org/pub/gluster/glusterfs/{{ glusterfs_deb_version }}/Debian/\
-      {{ ansible_distribution_release }}/{{ deb_architecture.stdout }}/apt {{ ansible_distribution_release }} \
+      {{ ansible_distribution_release }}/amd64/apt {{ ansible_distribution_release }} \
       main"
     state: present
     filename: gluster
